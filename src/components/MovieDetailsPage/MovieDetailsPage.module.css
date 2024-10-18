@@ -1,0 +1,24 @@
+.thumb {
+  display: flex;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 300px;
+  padding: 15px;
+}
+
+.picture {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 15px;
+}
+.text {
+  font-weight: 800;
+  /* color: black; */
+  padding-right: 10px;
+  margin-bottom: 50px;
+}

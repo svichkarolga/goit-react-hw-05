@@ -30,7 +30,22 @@ export const fetchVideosByID = async (movieId) => {
       options
     );
     const data = await response.json();
-    return data.results;
+    return data;
+  } catch (error) {
+    console.error("Error fetching videos:", error);
+    return [];
+  }
+};
+
+export const fetchCastByID = async (movieId) => {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}/credits`,
+      options
+    );
+    const data = await response.json();
+    console.log(data);
+    return data;
   } catch (error) {
     console.error("Error fetching videos:", error);
     return [];
