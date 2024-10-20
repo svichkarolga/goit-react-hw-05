@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styles from "./MovieDetailsPage.module.css";
 import { useParams } from "react-router";
 import { fetchVideosByID } from "../../services/fetchVideos";
@@ -35,7 +35,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
-      <Link to={backLinkRef}>
+      <Link to={backLinkRef.current}>
         <button>Go Back</button>
       </Link>
       {movie && (
