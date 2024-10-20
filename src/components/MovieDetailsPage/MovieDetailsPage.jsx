@@ -14,7 +14,8 @@ const MovieDetailsPage = () => {
   const [error, setError] = useState(false);
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkHref = location.state ?? "/movies";
+
+  const backLinkRef = useRef(location.state ?? "/movies");
 
   useEffect(() => {
     async function getVideosByID() {
@@ -34,7 +35,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
-      <Link to={backLinkHref}>
+      <Link to={backLinkRef}>
         <button>Go Back</button>
       </Link>
       {movie && (
