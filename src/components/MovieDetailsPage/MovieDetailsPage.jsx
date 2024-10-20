@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./MovieDetailsPage.module.css";
 import { useParams } from "react-router";
-import { useState } from "react";
 import { fetchVideosByID } from "../../services/fetchVideos";
-import { NavLink } from "react-router-dom";
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 import MovieCast from "../MovieCast/MovieCast";
 import MovieReviews from "../MovieReviews/MovieReviews";
 
@@ -13,6 +13,8 @@ const MovieDetailsPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const { movieId } = useParams();
+  const location = useLocation();
+  const backLinkHref = location.state ?? "/movies";
 
   useEffect(() => {
     async function getVideosByID() {
@@ -32,7 +34,9 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
-      <h2>Movie Details for ID: {movieId}</h2>
+      <Link to={backLinkHref}>
+        <button>Go Back</button>
+      </Link>
       {movie && (
         <div className={styles.thumb}>
           <div className={styles.picture}>
