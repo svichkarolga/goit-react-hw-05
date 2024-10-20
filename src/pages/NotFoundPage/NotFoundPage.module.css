@@ -1,0 +1,11 @@
+.btn {
+  background-color: orangered;
+  border-color: black;
+  color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  align-items: center;
+}
