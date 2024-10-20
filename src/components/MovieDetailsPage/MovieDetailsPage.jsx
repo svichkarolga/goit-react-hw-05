@@ -4,7 +4,6 @@ import { useParams } from "react-router";
 import { fetchVideosByID } from "../../services/fetchVideos";
 import { NavLink, Outlet, Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-
 import MovieCast from "../MovieCast/MovieCast";
 import MovieReviews from "../MovieReviews/MovieReviews";
 
