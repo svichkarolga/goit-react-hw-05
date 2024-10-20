@@ -11,6 +11,7 @@ const MoviesPage = () => {
   const [error, setError] = useState(false);
   const [query, setQuery] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
 
   useEffect(() => {
     const movie = searchParams.get("movie") ?? "";
@@ -39,7 +40,7 @@ const MoviesPage = () => {
 
   return (
     <div>
-      <Link to={"/movies?movie="} state={location}></Link>
+      <Link to={`/movies?movie=${result.id}`} state={location}></Link>
 
       <SearchBar onSubmit={onSubmit} />
       {loading && <p>Movies are loading...</p>}

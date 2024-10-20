@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, Suspense } from "react";
 import styles from "./MovieDetailsPage.module.css";
 import { useParams } from "react-router";
 import { fetchVideosByID } from "../../services/fetchVideos";
@@ -62,7 +62,9 @@ const MovieDetailsPage = () => {
           <NavLink to="reviews">Movie Review</NavLink>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<div>Loading inner component</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
