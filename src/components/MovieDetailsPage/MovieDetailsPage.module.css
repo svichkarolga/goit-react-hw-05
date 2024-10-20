@@ -5,20 +5,45 @@
 .box {
   display: flex;
   flex-direction: column;
-  text-align: left;
+  text-align: center;
   width: 300px;
-  padding: 15px;
+  padding: 0 15px 15px 15px;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 800;
+  text-align: center;
+  color: #646cff;
 }
 
 .picture {
   display: flex;
   flex-direction: column;
-  width: 300px;
-  padding: 15px;
+  width: 500px;
+  height: auto;
 }
 .text {
-  font-weight: 800;
-  /* color: black; */
-  padding-right: 10px;
-  margin-bottom: 50px;
+  font-weight: 400;
+  font-size: 24px;
+  color: orangered;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.components {
+  list-style: none;
+  text-align: left;
+  font-weight: 600;
+  font-size: larger;
+}
+
+.btn {
+  background-color: orangered;
+  border-color: black;
+  color: black;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

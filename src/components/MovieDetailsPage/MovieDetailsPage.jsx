@@ -6,6 +6,7 @@ import { NavLink, Outlet, Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import MovieCast from "../MovieCast/MovieCast";
 import MovieReviews from "../MovieReviews/MovieReviews";
+import Loader from "../Loader/Loader";
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
@@ -22,6 +23,7 @@ const MovieDetailsPage = () => {
         setLoading(true);
         setError(false);
         const data = await fetchVideosByID(movieId);
+        console.log(data);
         setMovie(data);
       } catch (error) {
         setError(true);
@@ -34,8 +36,9 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
+      {loading && <Loader isLoading={loading} />}
       <Link to={backLinkRef.current}>
-        <button>Go Back</button>
+        <button className={styles.btn}>Go Back</button>
       </Link>
       {movie && (
         <div className={styles.thumb}>
@@ -46,19 +49,24 @@ const MovieDetailsPage = () => {
             />
           </div>
           <div className={styles.box}>
-            <h2>{movie.title}</h2>
-            <span className={styles.text}>Overview</span> <br></br>
+            <h1 className={styles.title}>{movie.title}</h1>
+            <span className={styles.text}>Overview</span>
             {movie.overview}
-            <span className={styles.text}>Genres</span> <br></br>
+            <span className={styles.text}>Budget</span> {movie.budget}
+            <span className={styles.text}>Origin country</span>{" "}
+            {movie.origin_country}
+            <span className={styles.text}>Genres</span>
             {movie.genres && movie.genres.map((genre) => genre.name).join("")}
+            <span className={styles.text}>Vote average</span>
+            {movie.vote_average}
           </div>
         </div>
       )}
       <ul>
-        <li>
+        <li className={styles.components}>
           <NavLink to="cast">Movie Cast</NavLink>
         </li>
-        <li>
+        <li className={styles.components}>
           <NavLink to="reviews">Movie Review</NavLink>
         </li>
       </ul>

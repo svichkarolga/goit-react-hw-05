@@ -7,9 +7,6 @@ const buildLinkClass = ({ isActive }) => {
   return clsx(styles.link, isActive && styles.active);
 };
 
-{
-  /* змінювати юрл */
-}
 const Navigation = () => {
   return (
     <div>

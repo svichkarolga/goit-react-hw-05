@@ -38,5 +38,9 @@
 }
 
 .read-the-docs {
-  color: #888;
+  color: #0f0f0f;
+}
+
+body {
+  background-color: rgb(45, 45, 45);
 }

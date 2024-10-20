@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { fetchReviewByID } from "../../services/fetchVideos";
+import styles from "./MovieReview.module.css";
 
 const MovieReviews = () => {
   const [review, setReview] = useState([]);
@@ -27,13 +28,13 @@ const MovieReviews = () => {
 
   return (
     <div>
-      MovieReviews
-      <ul>
+      <h2 className={styles.mainText}>Movie Reviews</h2>
+      <ul className={styles.ul}>
         {review && review.length > 0 ? (
           review.map((result) => (
-            <li key={result.id}>
-              <strong>{result.author}</strong>
-              <p>{result.content}</p>
+            <li className={styles.list} key={result.id}>
+              <strong className={styles.author}>Author: {result.author}</strong>
+              <p className={styles.review}>{result.content}</p>
             </li>
           ))
         ) : (

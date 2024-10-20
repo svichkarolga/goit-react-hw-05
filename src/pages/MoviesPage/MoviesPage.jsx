@@ -1,15 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { fetchSearchMovie } from "../services/fetchVideos";
-import SearchBar from "../components/SearchBar/SearchBar";
+import { fetchSearchMovie } from "../../services/fetchVideos";
+import SearchBar from "../../components/SearchBar/SearchBar";
 import { Link, useLocation } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
+import styles from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [query, setQuery] = useState("");
+  // const [query, setQuery] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
 
@@ -40,20 +42,22 @@ const MoviesPage = () => {
 
   return (
     <div>
-      <Link to={`/movies?movie=${result.id}`} state={location}></Link>
-
       <SearchBar onSubmit={onSubmit} />
-      {loading && <p>Movies are loading...</p>}
+      {loading && <Loader isLoading={loading} />}
       {error && <p>Error fetching movies</p>}
 
-      <ul>
+      <ul className={styles.ul}>
         {searchResults.length > 0
           ? searchResults.map((result) => (
-              <li key={result.id}>
-                <Link to={`/movies/${result.id}`}>{result.title}</Link>
+              <li className={styles.list} key={result.id}>
+                <Link to={`/movies/${result.id}`} state={location}>
+                  {result.title}
+                </Link>
               </li>
             ))
-          : !loading && <p>No movies found</p>}
+          : !loading && (
+              <p className={styles.text}>Please enter your movie search!</p>
+            )}
       </ul>
     </div>
   );

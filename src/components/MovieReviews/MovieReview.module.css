@@ -1,0 +1,33 @@
+.mainText {
+  color: orangered;
+}
+
+.ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  border: 2px solid orangered;
+  border-radius: 8px;
+  background-color: rgb(248, 234, 229);
+  width: 100%;
+}
+
+.author {
+  color: #646cff;
+  font-size: 24px;
+  padding-top: 30px;
+}
+
+.review {
+  color: black;
+  padding: 30px;
+  text-align: center;
+}

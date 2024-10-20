@@ -2,16 +2,9 @@ import { lazy, useState, Suspense } from "react";
 import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
 import { Routes, Route } from "react-router-dom";
-// import HomePage from "./pages/HomePage";
-// import MoviesPage from "./pages/MoviesPage";
-// import NotFoundPage from "./pages/NotFoundPage";
-// import MovieList from "./components/MovieList/MovieList";
-// import MovieDetailsPage from "./components/MovieDetailsPage/MovieDetailsPage";
-// import MovieCast from "./components/MovieCast/MovieCast";
-// import MovieReviews from "./components/MovieReviews/MovieReviews";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
-const MoviesPage = lazy(() => import("./pages/MoviesPage"));
+const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 const MovieCast = lazy(() => import("./components/MovieCast/MovieCast"));
 const MovieReviews = lazy(() =>
@@ -23,7 +16,6 @@ const MovieDetailsPage = lazy(() =>
 );
 
 function App() {
-  const [count, setCount] = useState(0);
   return (
     <>
       <div>
