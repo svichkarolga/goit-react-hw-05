@@ -1,10 +1,9 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import styles from "./MovieList.module.css";
-import { Link } from "react-router-dom";
-import HomePage from "../../pages/HomePage/HomePage";
+import { Link, useLocation } from "react-router-dom";
 
 const MovieList = ({ movies = [] }) => {
+  const location = useLocation();
   return (
     <div>
       <h1 className={styles.title}>Trending today</h1>
@@ -12,7 +11,9 @@ const MovieList = ({ movies = [] }) => {
         {movies.length > 0 ? (
           movies.map((movie) => (
             <li className={styles.list} key={movie.id}>
-              <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+              <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+                {movie.title}
+              </Link>
             </li>
           ))
         ) : (

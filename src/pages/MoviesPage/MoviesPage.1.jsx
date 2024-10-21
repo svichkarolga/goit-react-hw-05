@@ -8,10 +8,11 @@ import Loader from "../../components/Loader/Loader";
 import styles from "./MoviesPage.module.css";
 import MovieList from "../../components/MovieList/MovieList";
 
-const MoviesPage = () => {
+export const MoviesPage = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  // const [query, setQuery] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
 
@@ -59,8 +60,7 @@ const MoviesPage = () => {
               <p className={styles.text}>Please enter your movie search!</p>
             )}
       </ul>
-      <MovieList movies={searchResults} />
+      <MovieList movies={movies} />
     </div>
   );
 };
-export default MoviesPage;
