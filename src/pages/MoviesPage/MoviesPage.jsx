@@ -45,20 +45,10 @@ const MoviesPage = () => {
       <SearchBar onSubmit={onSubmit} />
       {loading && <Loader isLoading={loading} />}
       {error && <p>Error fetching movies</p>}
+      {!loading && !searchParams.get("movie") && (
+        <p className={styles.text}>Please enter your movie search!</p>
+      )}
 
-      <ul className={styles.ul}>
-        {searchResults.length > 0
-          ? searchResults.map((result) => (
-              <li className={styles.list} key={result.id}>
-                <Link to={`/movies/${result.id}`} state={location}>
-                  {result.title}
-                </Link>
-              </li>
-            ))
-          : !loading && (
-              <p className={styles.text}>Please enter your movie search!</p>
-            )}
-      </ul>
       <MovieList movies={searchResults} />
     </div>
   );

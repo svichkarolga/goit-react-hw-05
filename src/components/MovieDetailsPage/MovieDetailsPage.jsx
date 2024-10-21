@@ -2,8 +2,8 @@ import React, { useEffect, useState, useRef, Suspense } from "react";
 import styles from "./MovieDetailsPage.module.css";
 import { useParams } from "react-router";
 import { fetchVideosByID } from "../../services/fetchVideos";
-import { NavLink, Outlet, Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { NavLink, Outlet, Link, useLocation } from "react-router-dom";
+
 import MovieCast from "../MovieCast/MovieCast";
 import MovieReviews from "../MovieReviews/MovieReviews";
 import Loader from "../Loader/Loader";
@@ -15,7 +15,7 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const location = useLocation();
 
-  const backLinkRef = useRef(location.state ?? "/movies");
+  const backLinkRef = useRef(location.state?.from || "/movies");
 
   useEffect(() => {
     async function getVideosByID() {

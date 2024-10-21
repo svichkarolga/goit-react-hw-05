@@ -3,6 +3,7 @@ import MovieList from "../../components/MovieList/MovieList";
 import { fetchVideos } from "../../services/fetchVideos";
 import { useEffect, useState } from "react";
 import Loader from "../../components/Loader/Loader";
+import styles from "./HomePage.module.css";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -26,6 +27,7 @@ const HomePage = () => {
   return (
     <div>
       {loading && <Loader isLoading={loading} />}
+      <h1 className={styles.title}>Trending today</h1>
       <MovieList movies={movies} />
     </div>
   );

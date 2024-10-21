@@ -2,12 +2,8 @@
   text-align: left;
 }
 
-.title {
-  color: orangered;
-  padding-top: 30px;
-}
-
 .list {
   text-decoration: none;
+  list-style: none;
   font-size: 20px;
 }
