@@ -37,9 +37,11 @@ const MovieDetailsPage = () => {
   return (
     <div>
       {loading && <Loader isLoading={loading} />}
-      <Link to={backLinkRef.current}>
-        <button className={styles.btn}>Go Back</button>
-      </Link>
+      <div className={styles.boxThumb}>
+        <Link to={backLinkRef.current}>
+          <button className={styles.btn}>Go Back</button>
+        </Link>
+      </div>
       {movie && (
         <div className={styles.thumb}>
           <div className={styles.picture}>

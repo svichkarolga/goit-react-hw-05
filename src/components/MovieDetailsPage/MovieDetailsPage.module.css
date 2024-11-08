@@ -1,5 +1,10 @@
+.boxThumb {
+  margin-top: 70px;
+}
+
 .thumb {
   display: flex;
+  /* margin-top: 70px; */
 }
 
 .box {

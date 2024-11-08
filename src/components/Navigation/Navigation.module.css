@@ -11,6 +11,8 @@
   width: 100%;
   padding: 15px 20px;
   z-index: 1000;
+  position: fixed;
+  box-shadow: 10px 5px 5px rgb(219, 4, 4);
 }
 
 .nav {
