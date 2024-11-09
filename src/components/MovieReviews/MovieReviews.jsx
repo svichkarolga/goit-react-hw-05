@@ -38,7 +38,7 @@ const MovieReviews = () => {
             </li>
           ))
         ) : (
-          <p>No review information available.</p>
+          <p className={styles.info}>No review information available.</p>
         )}
       </ul>
     </div>

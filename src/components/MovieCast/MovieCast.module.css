@@ -5,6 +5,8 @@
   flex-wrap: wrap;
   padding: 20px;
   height: 340px;
+  background-color: rgb(66, 64, 64);
+  height: 100%;
 }
 
 .card {
