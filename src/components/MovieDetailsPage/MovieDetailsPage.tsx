@@ -3,26 +3,25 @@ import styles from "./MovieDetailsPage.module.css";
 import { useParams } from "react-router";
 import { fetchVideosByID } from "../../services/fetchVideos";
 import { NavLink, Outlet, Link, useLocation } from "react-router-dom";
-
-import MovieCast from "../MovieCast/MovieCast";
-import MovieReviews from "../MovieReviews/MovieReviews";
 import Loader from "../Loader/Loader";
+import { MovieType } from "../../types";
 
-const MovieDetailsPage = () => {
-  const [movie, setMovie] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const { movieId } = useParams();
+const MovieDetailsPage: React.FC = () => {
+  const [movie, setMovie] = useState<MovieType | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const { movieId } = useParams<{ movieId: string }>();
   const location = useLocation();
 
   const backLinkRef = useRef(location.state?.from || "/movies");
 
   useEffect(() => {
+    if (!movieId) return;
     async function getVideosByID() {
       try {
         setLoading(true);
         setError(false);
-        const data = await fetchVideosByID(movieId);
+        const data = await fetchVideosByID(movieId as string);
         console.log(data);
         setMovie(data);
       } catch (error) {

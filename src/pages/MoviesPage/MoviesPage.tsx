@@ -8,7 +8,7 @@ import Loader from "../../components/Loader/Loader";
 import styles from "./MoviesPage.module.css";
 import MovieList from "../../components/MovieList/MovieList";
 
-const MoviesPage = () => {
+const MoviesPage: React.FC = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -36,7 +36,7 @@ const MoviesPage = () => {
     getSearchMovie();
   }, [searchParams]);
 
-  const onSubmit = (movie) => {
+  const onSubmit = (movie: string) => {
     setSearchParams({ movie });
   };
 

@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { fetchReviewByID } from "../../services/fetchVideos";
 import styles from "./MovieReview.module.css";
+import { ReviewType } from "../../types";
 
-const MovieReviews = () => {
-  const [review, setReview] = useState([]);
+const MovieReviews: React.FC = () => {
+  const [review, setReview] = useState<ReviewType[] | []>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const { movieId } = useParams();
@@ -14,7 +15,7 @@ const MovieReviews = () => {
       try {
         setLoading(true);
         setError(false);
-        const data = await fetchReviewByID(movieId);
+        const data = await fetchReviewByID(movieId as string);
         console.log(data);
         setReview(data.results);
       } catch (error) {

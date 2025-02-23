@@ -1,8 +1,12 @@
 import React from "react";
 import styles from "./MovieList.module.css";
 import { Link, useLocation } from "react-router-dom";
+import { MovieType } from "../../types";
 
-const MovieList = ({ movies = [] }) => {
+type MovieListProp = {
+  movies: MovieType[];
+};
+const MovieList: React.FC<MovieListProp> = ({ movies = [] }) => {
   const location = useLocation();
   return (
     <div>

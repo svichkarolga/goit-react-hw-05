@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Loader from "../../components/Loader/Loader";
 import styles from "./HomePage.module.css";
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);

@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { fetchCastByID } from "../../services/fetchVideos";
 import styles from "./MovieCast.module.css";
+import { CastType } from "../../types";
 
-const MovieCast = () => {
-  const [cast, setCast] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+const MovieCast: React.FC = () => {
+  const [cast, setCast] = useState<CastType[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
   const { movieId } = useParams();
 
   const defaultImg =
@@ -17,7 +18,7 @@ const MovieCast = () => {
       try {
         setLoading(true);
         setError(false);
-        const data = await fetchCastByID(movieId);
+        const data = await fetchCastByID(movieId as string);
         setCast(data.cast);
       } catch (error) {
         setError(true);

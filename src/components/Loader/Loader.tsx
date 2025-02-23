@@ -2,7 +2,10 @@ import React from "react";
 import styles from "./Loader.module.css";
 import { DNA } from "react-loader-spinner";
 
-const Loader = (isLoading) => {
+type LoaderProps = {
+  isLoading: boolean;
+};
+const Loader: React.FC<LoaderProps> = (isLoading) => {
   return (
     <div>
       <div className={styles.loader}>

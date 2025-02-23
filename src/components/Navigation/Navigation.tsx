@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 import styles from "./Navigation.module.css";
 import clsx from "clsx";
 
-const buildLinkClass = ({ isActive }) => {
+const buildLinkClass = ({ isActive }: { isActive: boolean }) => {
   return clsx(styles.link, isActive && styles.active);
 };
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
   return (
     <div>
       <header className={styles.header}>

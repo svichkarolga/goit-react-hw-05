@@ -23,7 +23,7 @@ export const fetchVideos = async () => {
   }
 };
 
-export const fetchVideosByID = async (movieId) => {
+export const fetchVideosByID = async (movieId: string) => {
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
@@ -37,7 +37,7 @@ export const fetchVideosByID = async (movieId) => {
   }
 };
 
-export const fetchCastByID = async (movieId) => {
+export const fetchCastByID = async (movieId: string) => {
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/${movieId}/credits`,
@@ -51,7 +51,7 @@ export const fetchCastByID = async (movieId) => {
   }
 };
 
-export const fetchReviewByID = async (movieId) => {
+export const fetchReviewByID = async (movieId: string) => {
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/${movieId}/reviews`,
@@ -65,7 +65,7 @@ export const fetchReviewByID = async (movieId) => {
   }
 };
 
-export const fetchSearchMovie = async (movieId) => {
+export const fetchSearchMovie = async (movieId: string) => {
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/search/movie?query=${movieId}&include_adult=false&language=en-US&page=1`,
